@@ -64,6 +64,9 @@ class View:
 
         # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
         # TODO
+        pulsante_mostra_strumento=ft.Button('Mostra',on_click=self.controller.mostra_strumento )
+        pulsante_cerca_tipo_strumento=ft.Button('Cerca',on_click=self.controller.cerca_tipo_strumento )
+
 
         # --- LAYOUT ---
         self.page.add(
@@ -83,9 +86,20 @@ class View:
 
             # Sezione 3
             # TODO
+            ft.Row(spacing=20,
+                   controls=[ft.Text('Strumenti',size=20),pulsante_mostra_strumento]),
+            ft.Container( self.lista_strumenti,height=100),# aggiunge uno spazio con un container vuoto
+            ft.Divider(),
+
 
             # Sezione 4
             # TODO
+            ft.Text('Cerca Strumento per Tipo',size=20),
+
+            ft.Row(spacing=20,
+                   controls=[self.input_tipo_strumento ,pulsante_cerca_tipo_strumento]),
+            self.lista_strumenti_ricerca,
+
         )
 
     def cambia_tema(self, e):
